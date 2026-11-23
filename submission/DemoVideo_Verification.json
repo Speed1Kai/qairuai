@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "seconds": 141.70833333333334,
+  "output_fps": 24,
+  "frames": 3401,
+  "source_frames": 346,
+  "controlled_capture": true,
+  "audio": false,
+  "bytes": 2139400
+}
