@@ -1,0 +1,20 @@
+[
+  "CityMission21/RoutePIE.json: to_surface through to_terminal",
+  "CityMission21/RoutePIE.json: terminal to mast",
+  "CityMission21/RoutePIE.json: mast to station receiver and shutter",
+  "CityMission21/RoutePIE.json: station street to shelter",
+  "CityMission21/RoutePIE.json: receiver aisle, station door, street",
+  "CityMission21/RoutePIE.json: same public threshold",
+  "CityFrontage20/AfterWalk.json: second approach to Market 04 (points 14–21)",
+  "CityFrontage20/AfterWalk.json: residential street",
+  "CityPassage19/AfterWalk.json: lost property office",
+  "CityFrontage20/AfterWalk.json: cinema counter",
+  "CityFrontage20/AfterWalk.json: market street service court",
+  "MissionRoute21/ShelterToTelephone.json: telephone station from north street",
+  "FieldSupplies/CampaignPIE.json: surface pump control",
+  "FieldSupplies/CampaignPIE.json: archive approached from public street",
+  "FieldSupplies/CampaignPIE.json: core service entrance",
+  "FieldSupplies/CampaignPIE.json: junction at local distributor",
+  "Market04/Walk.json: market frontage",
+  "StationDistrict/Walk.json: public station square"
+]

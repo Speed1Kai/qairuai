@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "case": "station_to_shelter",
+      "valid": true,
+      "expanded": 23,
+      "vertices": 11,
+      "metres": 64.04,
+      "expected_m": 64.04
+    },
+    {
+      "case": "transmitter_to_shelter",
+      "valid": true,
+      "expanded": 30,
+      "vertices": 15,
+      "metres": 78.88,
+      "expected_m": 78.88
+    },
+    {
+      "case": "market_shorter_street",
+      "valid": true,
+      "expanded": 13,
+      "vertices": 9,
+      "metres": 61.38,
+      "expected_m": 61.38
+    },
+    {
+      "case": "shelter_to_station",
+      "valid": true,
+      "expanded": 11,
+      "vertices": 11,
+      "metres": 64.04,
+      "expected_m": 64.04
+    },
+    {
+      "case": "shelter_to_telephone",
+      "valid": true,
+      "expanded": 14,
+      "vertices": 12,
+      "metres": 107.62,
+      "expected_m": 107.62
+    },
+    {
+      "case": "laboratory_to_archive",
+      "valid": true,
+      "expanded": 88,
+      "vertices": 71,
+      "metres": 1030.37,
+      "expected_m": 1030.37
+    },
+    {
+      "case": "same_position",
+      "valid": true,
+      "expanded": 0,
+      "vertices": 2,
+      "metres": 0.0,
+      "expected_m": 0.0
+    },
+    {
+      "case": "same_street_partial",
+      "valid": true,
+      "expanded": 0,
+      "vertices": 2,
+      "metres": 14.24,
+      "expected_m": 14.24
+    },
+    {
+      "case": "far_from_network",
+      "valid": false,
+      "expanded": 0,
+      "vertices": 0,
+      "metres": null,
+      "expected_m": null
+    },
+    {
+      "case": "target_outside_network",
+      "valid": false,
+      "expanded": 0,
+      "vertices": 0,
+      "metres": null,
+      "expected_m": null
+    }
+  ],
+  "install": {
+    "passed": true,
+    "backup": "S:\\Final_Protocol\\Saved\\Backups\\CityStreetGuide\\20261123_210726_932016\\Content\\ThirdPerson\\Blueprints\\BP_ThirdPersonCharacter.uasset",
+    "nodes": 138,
+    "edges": 141,
+    "pois": {
+      "Вход в убежище 07": 85,
+      "Станция 07 · вход": 137,
+      "Телефонная станция": 114,
+      "Рынок 04": 98,
+      "Выход из лаборатории": 3
+    }
+  }
+}

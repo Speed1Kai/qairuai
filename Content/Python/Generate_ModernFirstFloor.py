@@ -1,0 +1,101 @@
+"""Original, reusable first-floor laboratory props; centimetres and explicit UVs."""
+import ast,os,math,json
+scripts=os.path.dirname(__file__)
+ROOT=os.path.abspath(os.path.join(scripts,'..','LabTutorial','FirstFloor','Source'))
+os.makedirs(ROOT,exist_ok=True)
+for file,kind,name in [('Generate_IndustrialMeshes.py',ast.ClassDef,'Model'),('Generate_SplitDoorMeshes.py',ast.FunctionDef,'save_uv_model')]:
+ tree=ast.parse(open(os.path.join(scripts,file),encoding='utf8').read())
+ exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,kind) and n.name==name],type_ignores=[]),file,'exec'))
+Model.save=save_uv_model
+models=[]
+white='M_LabCeramic';dark='M_LabGraphite';steel='M_LabSteel';cyan='M_LabCyan';screen='M_LabDisplay';rubber='M_LabRubber';amber='M_LabAmber'
+m=Model('SM_ModernServerRack')
+m.box((0,0,118),(86,100,236),dark,5)
+for x in (-41,41):m.box((x,-52,119),(5,5,226),steel,1)
+m.box((0,-54,222),(72,5,16),white,2)
+for z in range(22,210,23):
+ m.box((0,-52,z),(74,5,20),steel,1)
+ for x in range(-29,18,5):m.box((x,-55,z),(2,1,11),rubber)
+ for x in (25,31):m.box((x,-56,z+3),(2,1,3),cyan)
+ m.box((25,-56,z-4),(14,1,2),screen)
+for x in (-29,29):
+ for y in (-34,34):m.cylinder((x,y,5),6,10,rubber,10)
+for z in (58,145):
+ m.cylinder((0,51,z),24,2,rubber,16,1)
+ for i in range(8):
+  a=i*math.tau/8;m.box((math.cos(a)*15,53,z+math.sin(a)*15),(8,2,8),steel)
+m.box((0,0,239),(72,90,5),steel,2)
+models.append(m.save())
+m=Model('SM_ModernConsole')
+m.box((0,0,80),(180,76,8),white,5)
+for x in (-74,74):m.box((x,14,39),(20,46,78),dark,3)
+m.box((0,28,44),(140,6,55),steel,2)
+for x in (-44,44):
+ m.box((x,17,105),(5,9,40),steel,1)
+ m.box((x,17,136),(79,7,48),dark,3,1)
+ m.box((x,12.7,136),(72,1,40),screen,1,1)
+ for j in range(5):m.box((x-27,11.9,123+j*6),(17+j*7,0.5,1),cyan)
+ m.box((x,-17,86),(65,24,4),dark,2)
+ for row in range(3):
+  for col in range(11):m.box((x-27+col*5.2,-24+row*6,89),(4,4,1),steel)
+for x in (77,83):m.cylinder((x,-14,86),2,3,amber,8)
+models.append(m.save())
+m=Model('SM_ModernChair')
+m.cylinder((0,0,42),4,54,steel,12)
+for i in range(5):
+ a=i*math.tau/5;p=(math.cos(a)*27,math.sin(a)*27,8)
+ m.pipe([(0,0,12),p],3,steel,6);m.cylinder(p,5,6,rubber,8,0)
+m.box((0,0,64),(49,48,11),rubber,7)
+m.box((0,23,92),(47,9,49),dark,7,1)
+for x in (-27,27):m.box((x,0,80),(5,37,5),steel,2)
+models.append(m.save())
+m=Model('SM_LabEquipmentCabinet')
+m.box((0,0,108),(90,48,216),white,4)
+m.box((0,-26,110),(80,4,196),dark,3,1)
+for x in (-20,20):
+ m.box((x,-29,110),(36,3,188),white,2,1)
+ m.box((x+(12 if x<0 else -12),-32,114),(3,4,22),steel,1)
+ for z in range(34,73,8):m.box((x,-31,z),(23,1,2),dark)
+m.box((0,-31,191),(25,1,9),screen,1)
+models.append(m.save())
+m=Model('SM_LabUtilityBench')
+m.box((0,0,89),(190,65,8),white,4)
+for x in (-69,69):
+ m.box((x,0,42),(47,56,84),dark,3)
+ for z in (26,50,74):
+  m.box((x,-30,z),(42,3,20),white,1)
+  m.box((x,-33,z+5),(20,3,2),steel)
+m.box((-48,7,103),(43,34,20),dark,3)
+m.box((-48,-11,105),(32,1,13),screen,1)
+for x in (19,40,61):
+ m.cylinder((x,7,102),6,18,steel,12);m.cylinder((x,7,113),6,4,cyan,12)
+m.pipe([(63,26,94),(90,23,95),(97,-8,94),(84,-18,94)],1.3,rubber,6)
+models.append(m.save())
+m=Model('SM_DeconShowerColumn')
+m.box((0,0,143),(22,24,286),white,4)
+m.box((0,-13,142),(13,2,230),dark,2)
+for z in (60,130,200):m.cylinder((0,-16,z),5,7,steel,12,1)
+m.box((0,-15,258),(12,2,12),cyan,1)
+m.pipe([(0,10,10),(0,17,270),(0,-45,270)],3,steel,10)
+m.cylinder((0,-45,266),14,5,steel,16)
+models.append(m.save())
+m=Model('SM_CleanroomLight')
+m.box((0,0,0),(180,72,10),dark,3)
+m.box((0,0,-6),(164,58,3),'M_LabWhiteLight',2)
+for x in (-85,85):m.box((x,0,-7),(4,58,4),steel)
+models.append(m.save())
+m=Model('SM_LabCeilingService')
+m.box((0,0,0),(200,30,23),steel,3)
+for x in range(-90,91,18):m.box((x,0,-14),(3,25,4),dark)
+for y in (-10,0,10):m.pipe([(-98,y,15),(98,y,15)],2.5,rubber,8)
+models.append(m.save())
+m=Model('SM_LabSupplyCart')
+for z in (22,65):m.box((0,0,z),(66,42,5),white,3)
+for x in (-28,28):
+ for y in (-16,16):
+  m.cylinder((x,y,43),2,44,steel,8);m.cylinder((x,y,8),7,5,rubber,10,1)
+m.box((0,0,81),(43,29,26),dark,3)
+m.box((0,-16,83),(29,2,12),screen,1)
+models.append(m.save())
+with open(os.path.join(ROOT,'first_floor_meshes.json'),'w') as f:json.dump(models,f,indent=2)
+print('Generated',len(models),'reusable laboratory meshes')

@@ -1,0 +1,15 @@
+__pycache__/
+Config/
+*.pyc
+.env
+.env.*
+*.zip
+*.7z
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+.vs/
+*.sln
+*.pdb
+*.log

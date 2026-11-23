@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "HUD computed route to shelter",
+    "N changes map destination",
+    "route recalculated to telephone",
+    "M closes map"
+  ],
+  "metres": 78.88123281106235
+}

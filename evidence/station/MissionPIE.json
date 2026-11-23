@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "phase": "passed",
+  "scenarios": [
+    {
+      "case": "initial",
+      "antenna": false,
+      "cable": false,
+      "line": false,
+      "power": false,
+      "allowed": false,
+      "stage": 1,
+      "action": "Ожидаю резерв питания для связи, света и насоса.",
+      "channel": "Антенна отключена\nКабель водоканала отключён",
+      "circuits": "Допустимой схемы нет. Ввод Б отключён.\nТри устройства требуют 9 ед. Ввод А даёт 6 ед."
+    },
+    {
+      "case": "attempt_with_no_power",
+      "antenna": false,
+      "cable": false,
+      "line": false,
+      "power": false,
+      "allowed": false,
+      "stage": 1,
+      "action": "Ожидаю резерв питания для связи, света и насоса.",
+      "channel": "Антенна отключена\nКабель водоканала отключён",
+      "circuits": "Допустимой схемы нет. Ввод Б отключён.\nТри устройства требуют 9 ед. Ввод А даёт 6 ед."
+    },
+    {
+      "case": "attempt_with_no_channel",
+      "antenna": false,
+      "cable": false,
+      "line": false,
+      "power": true,
+      "allowed": false,
+      "stage": 1,
+      "action": "Ожидаю местный канал. Магистраль слушает Атлас.",
+      "channel": "Антенна отключена\nКабель водоканала отключён",
+      "circuits": "Связь → А  ·  свет → А  ·  насос → Б\nНагрузка 5/6 на А и 4/4 на Б. Связь и насос на разных вводах."
+    },
+    {
+      "case": "cable_only",
+      "antenna": false,
+      "cable": true,
+      "line": true,
+      "power": true,
+      "allowed": true,
+      "stage": 1,
+      "action": "Передача разрешена. Можно вызвать жителей.",
+      "channel": "Антенна отключена\nКабель водоканала подключён",
+      "circuits": "Связь → А  ·  свет → А  ·  насос → Б\nНагрузка 5/6 на А и 4/4 на Б. Связь и насос на разных вводах."
+    },
+    {
+      "case": "both_channels",
+      "antenna": true,
+      "cable": true,
+      "line": true,
+      "power": true,
+      "allowed": true,
+      "stage": 1,
+      "action": "Передача разрешена. Можно вызвать жителей.",
+      "channel": "Антенна подключена\nКабель водоканала подключён",
+      "circuits": "Связь → А  ·  свет → А  ·  насос → Б\nНагрузка 5/6 на А и 4/4 на Б. Связь и насос на разных вводах."
+    },
+    {
+      "case": "antenna_only",
+      "antenna": true,
+      "cable": false,
+      "line": true,
+      "power": true,
+      "allowed": true,
+      "stage": 1,
+      "action": "Передача разрешена. Можно вызвать жителей.",
+      "channel": "Антенна подключена\nКабель водоканала отключён",
+      "circuits": "Связь → А  ·  свет → А  ·  насос → Б\nНагрузка 5/6 на А и 4/4 на Б. Связь и насос на разных вводах."
+    },
+    {
+      "case": "reject_after_power_loss",
+      "antenna": true,
+      "cable": false,
+      "line": true,
+      "power": false,
+      "allowed": false,
+      "stage": 1,
+      "action": "Ожидаю резерв питания для связи, света и насоса.",
+      "channel": "Антенна подключена\nКабель водоканала отключён",
+      "circuits": "Допустимой схемы нет. Ввод Б отключён.\nТри устройства требуют 9 ед. Ввод А даёт 6 ед."
+    }
+  ],
+  "objective": "Помоги раненым · открой ставню в приёмной",
+  "receiver_material": "MI_OnAir"
+}
